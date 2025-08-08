@@ -1,0 +1,63 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+
+# Poetry virtual environment
+.venv/
+
+# Django stuff
+*.log
+db.sqlite3
+media/
+static/
+staticfiles/
+staticfiles_collected/
+local_settings.py
+
+# PostgreSQL: ignore dumps and backups
+*.sql
+*.dump
+*.pg_dump
+*.backup
+
+# Environment variables and secrets
+.env
+.env.*
+.lock
+
+# IDE/editor config
+.vscode/
+.idea/
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Test/coverage output
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
+.cache
+
+# mypy/type checker output
+.mypy_cache/
+.pyright/
+
+# Docker
+*.pid
+
+# Backup/temp files
+*~
+*.bak
+*.tmp
+.er
+
+#just for me
+notes/
+
+

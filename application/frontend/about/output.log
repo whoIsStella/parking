@@ -1,0 +1,14 @@
+nohup: ignoring input
+
+> about@0.1.0 start
+> next start
+
+   ▲ Next.js 15.3.3
+   - Local:        http://localhost:3000
+   - Network:      http://172.31.25.40:3000
+
+ ✓ Starting...
+ ✓ Ready in 839ms
+ ⨯ The requested resource isn't a valid image for /team/EL.JPG received text/html; charset=utf-8
+ ⨯ The requested resource isn't a valid image for /team/Team_PIC_NM.png received text/html; charset=utf-8
+ ⨯ The requested resource isn't a valid image for /team/fatma.png received text/html; charset=utf-8
