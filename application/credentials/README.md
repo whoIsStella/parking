@@ -45,38 +45,6 @@
 
 ---
 
-## Part 2: Accessing the PostgreSQL Database from EC2
-
-A dedicated application user (`special_usr`) has been created for secure access.
-
-### Database Details
-
-- **RDS Endpoint:** `database-1.cdkeii4im82t.us-west-1.rds.amazonaws.com`
-- **Port:** `5432`
-- **Application Database Name:** `fuck_amazon`
-- **Application Database User:** `special_usr`
-- **Application Database User Password:** `i_fucking_hate_amzn`
-
-### Steps (from the EC2 Instance)
-
-1. **Make sure you are SSH'd into the EC2 instance** (as per Part 1).
-2. **Use the `psql` command to connect:**
-
-    `psql -h database-1.cdkeii4im82t.us-west-1.rds.amazonaws.com -p 5432 -U special_usr -d fuck_amazon`
-
-3. **Enter the password when prompted:**
-    Ex.
-    Password for user special_usr:
-
-    Type `i_fucking_hate_amzn` and press Enter. Characters will not appear.
-4. **Verification:** Upon successful connection, the prompt will change to `fuck_amazon=>`. You can run a simple query to test:
-
-    `SELECT * FROM marketplace_user LIMIT 5;`
-
-    To exit the `psql` prompt, type `\q` and press Enter or use control-D.
-
----
-
 ## Part 3: Running and Accessing the Next.js Site
 
 The Next.js application code is located on the EC2 instance.
@@ -115,23 +83,7 @@ The Next.js application code is located on the EC2 instance.
 
     - In your **local browser**, visit:
 
-        `http://52.52.40.129:3000/`
-
-    - The About page (or homepage) should load.
-
-    This command will typically start the server on `http://localhost:3000` *on the EC2 instance*. You will see output indicating the server has started. The process will continue to run in your SSH session.
-
-4. **Access the Website from Your Local Browser:**
-    - Open your web browser on your **local machine**.
-    - In the address bar, type the **Public IP Address/DNS of your EC2 instance**, followed by the Next.js port (default 3000):
-
-        ```
-        http://52.52.40.129:3000/
-        ```
-
-    - The about page should now load in your browser.
-
-5. - Find the running Next.js process:
+4. - Find the running Next.js process:
 
         `ps aux | grep next`
 
@@ -141,14 +93,8 @@ The Next.js application code is located on the EC2 instance.
 
         `kill -9 <processID>`
 
-6. **Notes**
+5. **Notes**
 
     - To stop the server in the future, repeat the above process (`ps aux | grep next`, then `kill -9`).
-
----
-
-**Credentials Folder:** 🎯 Target locked!. This folder is the vault that holds the keys to the
-kingdom—**do not** rename it, or you might open a portal to chaos! The CTO has a sixth sense for these things,
-and we’d hate to see what happens if this folder goes rogue. Stay tuned for more secrets when we hit Milestone 1! 🔐
 
 ---
