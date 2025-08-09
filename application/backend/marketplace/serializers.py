@@ -27,7 +27,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             last_name=validated_data.get('last_name', ''),
             role=validated_data.get('role', 'renter'),
         )
-        return user                                            #these corrospond with the tables in M2 and the models
+        return user                                          
     
 class ParkingSpaceSerializer(serializers.ModelSerializer):
     owner_email = serializers.ReadOnlyField(source='owner.email')
@@ -162,7 +162,7 @@ class PaymentSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ('payment_id', 'user', 'created_at', 'refunded_at', 'transaction_ref', 'amount')
         
-class ReviewSerializer(serializers.ModelSerializer):  #This is the ReviewSerializer (lines 163-187). Please don't make two of them
+class ReviewSerializer(serializers.ModelSerializer): 
     author = serializers.PrimaryKeyRelatedField(
         queryset=User.objects.all(),
         default=serializers.CurrentUserDefault(),
@@ -187,15 +187,6 @@ class ReviewSerializer(serializers.ModelSerializer):  #This is the ReviewSeriali
         if not booking or booking.renter != requesting_user or booking.status != 'completed':
             raise serializers.ValidationError({"author": "You can only review parking spaces for completed bookings you made."})
         return data
-
-    
-
-      #      renter=requesting_user, 
-      #       space=data['parking_space'],
-      #       status='completed'
-      #  ).exists():
-      #      raise serializers.ValidationError({"user": "You can only review parking spaces for completed bookings."})
-      #   return data
 
 
 class AdminActionSerializer(serializers.ModelSerializer):
