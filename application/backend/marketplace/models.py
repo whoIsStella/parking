@@ -5,7 +5,7 @@ from django.conf import settings
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-class UserManager(BaseUserManager):    #Lines 8-61 is the 'User Model'. No need to import it.
+class UserManager(BaseUserManager):  
     def create_user(self, email, password=None, **extra_fields):
         if not email:
             raise ValueError('Email is required')
@@ -113,26 +113,6 @@ class Booking(models.Model):
         space_address = self.space.address if self.space else 'N/A Space'
         renter_email = self.renter.email if self.renter else 'N/A Renter'
         return f"Booking for {space_address} by {renter_email}"
-    
-    @property
-
-    def duration_hours(self):
-
-
-        if self.start_time and self.end_time:
-            
-
-
-            from datetime import timedelta
-
-            duration = self.end_time - self.start_time
-
-
-            return max(1, round(duration.total_seconds() / 3600))
-
-
-            
-        return 0
 
     class Meta:
         indexes = [
