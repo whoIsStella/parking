@@ -4,8 +4,6 @@ from rest_framework import viewsets
 from .models import User, ParkingSpace, Booking, PaymentMethod, Payment, Message, Review, AdminAction, SupportTicket, ServiceRequest, Notification
 from rest_framework import status, permissions, viewsets, filters
 from rest_framework.views import APIView
-#from rest_framework.decorators import api_view
-#from .serializers import ReviewSerializer This has alreaady been imported, see line 29
 from rest_framework.permissions import IsAuthenticatedOrReadOnly 
 from rest_framework.response import Response
 from rest_framework.decorators import action
@@ -354,9 +352,6 @@ class ReviewViewSet(viewsets.ModelViewSet):
             return Review.objects.filter(is_visible=True) 
         return super().get_queryset()
 
-#Try api_view right here Juliana!
-
-
 class AdminActionViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AdminAction.objects.all()
     serializer_class = AdminActionSerializer
@@ -370,9 +365,6 @@ class AdminActionViewSet(viewsets.ReadOnlyModelViewSet):
         
     def get_queryset(self):
         return super().get_queryset()
-
-
-
 
 class SupportTicketViewSet(viewsets.ModelViewSet):
     queryset = SupportTicket.objects.all()
@@ -473,11 +465,3 @@ class NotificationViewSet(viewsets.ReadOnlyModelViewSet):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
         return Response(serializer.data)
-
-# @api_view(['POST'])       This is inside of the NotificationView. Try it on line 357 instead.
-# def create_review(request):
-#     serializer = ReviewSerializer(data=request.data)
-#     if serializer.is_valid():
-#         serializer.save()
-#         return Response(serializer.data, status=status.HTTP_201_CREATED)
-#     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
