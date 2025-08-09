@@ -1,30 +1,4 @@
-# Credentials Folder
-
-## Security Guidelines
-
-- **Private Keys:** All private keys (e.g., `Team5Key.pem`) are stored securely in the `/pem` directory and are not committed to version control.
-- **Database Credentials:** Database usernames and passwords are stored in environment variables and are not exposed in the codebase.
-- **Access Control:** Only authorized team members have access to the AWS EC2 instance and RDS database. Credentials are rotated if a member leaves the team.
-- **Sensitive Information:** All sensitive information (keys, passwords) is shared securely and never posted in public channels or repositories.
-
----
-
-## Team Contact Information
-
-| Student | Full Name             | SFSU Email                | GitHub Username      | Discord Username      | Role(s)                      |
-|:-------:|:---------------------:|:-------------------------:|:--------------------:|:---------------------:|:-----------------------------:|
-|    #1   | Stella Parker         | <sparker11@sfsu.edu>        | @whoIsStella         | latchkeykid           | Team-lead / Backend-Lead / GitHub Master / Scrum Master |
-|    #3   | Nathaniel Moreno      | <nmoreno@sfsu.edu>          | @NateM03             | ba_daniels            | Database Administrator        |
-|    #4   | Fatma Almosawi        | <falmosawi@sfsu.edu>        | @fatma-al            | fatma.almosawi        | Scrum Master                  |
-|    #5   | Krishna Shenoy        | <920875953@sfsu.edu>        | @krishs44            | krishnashenoy_71520   | Technical Writer              |
-|    #6   | Juan Daniel Ramirez   | <jramirez9@sfsu.edu>        | @JuanDanielRamirez   | juanramirez_05991     | Frontend Lead                 |
-|    #7   | Julianna Embalzado    | <eembalzado@mail.sfsu.edu>  | julianna-embalzado   | jejemon6201           | Software Architect            |
-
----
-
-## Tutorial: Accessing Your Project on AWS
-
-This document provides instructions for accessing the EC2 instance, PostgreSQL RDS database, and Django+Next.js application running on Amazon Web Services (AWS).
+# Application Credentials README
 
 ## Prerequisites
 
@@ -33,38 +7,6 @@ This document provides instructions for accessing the EC2 instance, PostgreSQL R
   - **Windows:** Git Bash (recommended), Windows Subsystem for Linux (WSL), or PowerShell with OpenSSH.
 
 ---
-
-## Part 1: SSH Access to the EC2 Instance
-
-### EC2 Instance Details
-
-- **Public IP/DNS:** `ec2-52-52-40-129.us-west-1.compute.amazonaws.com` (replace with current if changed)
-- **Username:** `ubuntu` (default for Ubuntu AMIs)
-
-### Steps
-
-1. **Download the private key**  
-   - Find `Team5Key.pem` in the `/pem` directory.
-
-2. **Set permissions on the key**  
-
-   `chmod 400 Team5Key.pem`
-
-   *(This is crucial for security and SSH to accept the key.)*
-3. **Connect to the instance**  
-   - Execute the SSH command:
-
-    `ssh -i "Team5Key.pem" ubuntu@ec2-52-52-40-129.us-west-1.compute.amazonaws.com`
-
-4. **First-time connection:** You may be asked to confirm the authenticity of the host. Type `yes` and press Enter.
-
-Upon successful connection, your terminal prompt will change to something like `ubuntu@ip-172-31-25-40:~$` indicating you are now logged into the EC2 instance.
-
----
-
-## Part 1.5: Starting the Backend Docker Containers
-
-Once you are connected to the EC2 instance, it's a good idea to check for any existing backend processes and clear out old containers before starting fresh.
 
 1. **Check for existing backend processes (optional):**
 
