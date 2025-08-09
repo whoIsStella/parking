@@ -12,15 +12,12 @@ Welcome to the **Parking Space Marketplace** repository! This project is a full-
   - [Features](#features)
   - [Installation](#installation)
     - [Prerequisites](#prerequisites)
-    - [Backend Setup](#backend-setup)
     - [Frontend Setup](#frontend-setup)
-    - [Database Setup](#database-setup)
     - [Running the Application](#running-the-application)
   - [Usage](#usage)
   - [Configuration](#configuration)
   - [Folder Structure](#folder-structure)
   - [Contributing](#contributing)
-  - [License](#license)
   - [Credits](#credits)
 
 ---
@@ -69,11 +66,9 @@ npm install
 ### Running the Application
 
 ```bash
-# Start the backend server
 cd application/backend
 docker compose up -d
 
-# In a new terminal, start the frontend development server
 cd application/frontend/about
 npm run build
 
@@ -133,9 +128,3 @@ We welcome contributions from everyone!
 - **Docker** - An open platform for developing, shipping, and running applications
 
 ---
-
-**Heads Up!** 🚀 Welcome to the epicenter of our project’s awesomeness! The files in this folder are the building blocks
-of something amazing, so treat them with care. And remember, with great power comes great responsibility—if you’re
-making changes, make sure they’re worthy of the superhero status you now hold. ⚡️
-
-Oh, and if you see a file doing something unique… it’s not a bug, it’s a feature! 😉
